@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts Centinela Facebook/Instagram</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background: #00c6a0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .title {
+      position: absolute;
+      top: 55px;
+      width: 100%;
+      text-align: center;
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .card-holder {
+      display: flex;
+      width: 100%;
+      height: 200px;
+      position: absolute;
+      top: 50%;
+      left: 45%;
+      transform: translate(-50%, -50%);
+      justify-content: center;
+    }
+
+    .card img, .card iframe {
+      width: 100%;
+      border-radius: inherit;
+    }
+
+    .card.large {
+      width: 350px; /* Incrementamos el tamaño */
+      height: 350px;
+      z-index: 1000;
+      transform: perspective(600px) rotateY(0deg) translateZ(70px); /* Más sobresaliente */
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, 1); /* Más prominente */
+      margin-right: -15px;
+    }
+
+    .card {
+      width: 200px;
+      height: 200px;
+      display: inline-flex;
+      background: #333;
+      border-radius: 30px;
+      transition: all .4s ease;
+      margin-right: -150px;
+      box-shadow: 0 18px 31px -8px rgba(0, 0, 0, .5);
+      transform: perspective(600px) rotateY(45deg);
+    }
+
+    .card:hover {
+      transform: perspective(600px) rotateY(0deg) translateZ(50px);
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+    }
+
+    .card:not(.last):hover {
+      margin-right: -15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Posts Paseo Morelos Facebook/Instagram</div>
+  <div class="card-holder"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Array con las URLs de las imágenes
+      const cardContent = [
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/2.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/3.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/275059194_5039929359419376_6859250822042188435_n.png",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/275334125_5039953946083584_6144819056137709058_n.png",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/278170004_5124302934315351_5107045777167457162_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/278172973_5124361260976185_4460717514339369390_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/278451655_5137018639710447_9130563718674732181_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/278860008_5156429484436029_2062906992541736965_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/278989552_5156449411100703_3410362039194655930_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/279014444_5156436161102028_1166209740467321269_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/279649333_5185641664848144_7611797132659113962_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postspaseomorelos/refs/heads/main/311045842_5629244750487831_176695321119200986_n.jpg"
+      ];
+
+      // Contenedor de tarjetas
+      const cardHolder = document.querySelector('.card-holder');
+
+      // Crear tarjetas dinámicamente
+      cardContent.forEach((url) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        const img = document.createElement('img');
+        img.src = url;
+        card.appendChild(img);
+
+        cardHolder.appendChild(card);
+      });
+
+      // Agregar funcionalidad de clic
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card) => {
+        card.addEventListener('click', function () {
+          card.classList.toggle('large');
+
+          // Cerrar otras tarjetas
+          cards.forEach((otherCard) => {
+            if (otherCard !== card) {
+              otherCard.classList.remove('large');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
